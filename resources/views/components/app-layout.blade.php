@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ isset($title) ? $title . ' - TGether' : 'TGether' }}</title>
 
     <link rel="shortcut icon" href="logo.png" type="image/x-icon">
 
@@ -51,11 +51,14 @@
             </nav>
         @endif
     </header>
-    <div class="flex items-center justify-center w-full transition-opacity opacity-100 duration-750 lg:grow starting:opacity-0">
-    </div>
+
+    <main class="flex items-center justify-center w-full transition-opacity opacity-100 duration-750 lg:grow starting:opacity-0">
+        {{ $slot }}
+    </main>
 
     @if (Route::has('login'))
         <div class="h-14.5 hidden lg:block"></div>
     @endif
+        <footer>&copy; 2025</footer>
 </body>
 </html>
